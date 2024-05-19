@@ -1,0 +1,129 @@
+#typed{
+    font-size: 90px;
+  }
+  
+  @keyframes slide1 {
+    0% { transform: translateX(100%); }
+    100% { transform: translateX(-100%); }
+  }
+  
+  @keyframes slide2 {
+    0% { transform: translateX(0%); }
+    50% { transform: translateX(-100%); }
+    50.001% { transform: translateX(100%); }
+    100% { transform: translateX(0%); }
+  }
+  
+  @keyframes slide1r {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+  }
+  
+  @keyframes slide2r {
+    0% { transform: translateX(0%); }
+    50% { transform: translateX(100%); }
+    50.001% { transform: translateX(-100%); }
+    100% { transform: translateX(0%); }
+  }
+  
+  .ions{
+    font-size: 100px;
+    transition: 0.4s;
+    margin: 0 50px;
+  }
+  
+  .ions:hover{
+    font-size: 150px;
+  }
+  
+  .logos {
+    overflow: hidden;
+    margin-top: 30px;
+    margin-bottom: 120px;
+    white-space: nowrap;
+    position: relative;
+    display: flex;
+    text-align: center;
+  }
+  
+  .logos:before,
+  .logos:after {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    content: "";
+    z-index: 2;
+  }
+  
+  .logos:before {
+    left: 0;
+  }
+  
+  .logos:after {
+    right: 0;
+  }
+  
+  .logos:hover .logos-slide1 {
+    animation-play-state: paused;
+  }
+  
+  .logos:hover .logos-slide2 {
+    animation-play-state: paused;
+  }
+  
+  .logos:hover .logos-slide1r {
+    animation-play-state: paused;
+  }
+  
+  .logos:hover .logos-slide2r {
+    animation-play-state: paused;
+  }
+  
+  .logos-slide1 {
+    display: flex;
+    animation: 40s slide1 infinite linear;
+    position: fixed;
+  }
+  
+  .logos-slide2 {
+    display: flex;
+    animation: 40s slide2 infinite linear;
+    position: fixed;
+  }
+  
+  .logos-slide1r {
+    display: flex;
+    animation: 40s slide1r infinite linear;
+    position: fixed;
+  }
+  
+  .logos-slide2r {
+    display: flex;
+    animation: 40s slide2r infinite linear;
+    position: fixed;
+  }
+
+  .nav__linkP {
+    background-color: var(--title-color);
+    color: var(--first-color);
+    font-weight: var(--font-semi-bold);
+    transition: 0.4s;
+    
+    font-size: var(--h2-font-size);
+    padding: 0.5rem 1rem;
+    margin: 1rem 0;
+    border-radius: 4px;
+    border: 0cap;
+    cursor: pointer;
+  }
+  
+  .nav__linkP:hover {
+    color: var(--body-color);
+    padding: 0.75rem 1.5rem;
+  }
+  
+
+tr, td, th{
+  width: 40px;
+  height: 40px;
+}

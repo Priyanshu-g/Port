@@ -1,0 +1,106 @@
+
+
+
+const Game = () => {
+  const [position1, setPosition1] = useState(125);
+  const [position2, setPosition2] = useState(125);
+  const [keysPressed, setKeysPressed] = useState({});
+  const [ballPosition, setBallPosition] = useState({ x: 200, y: 1000 });
+  const [ballVelocity, setBallVelocity] = useState({ x: 1, y: 1 });
+
+  useEffect(() => {
+    setInterval(() => {
+      setBallPosition((prevPosition) => ({
+        x: prevPosition.x + ballVelocity.x,
+        y: prevPosition.y + ballVelocity.y
+      }));
+
+      // Collision detection with top and bottom walls
+      // if (ballPosition.y <= 0 || ballPosition.y >= 450) {
+      //   setBallVelocity((prevVelocity) => ({ ...prevVelocity, y: -prevVelocity.y }));
+      // }
+
+      // Reset ball if it goes out of bounds
+      // if (ballPosition.x <= 0 || ballPosition.x >= 500) {
+      //   setBallPosition({ x: 200, y: 1000 });
+      //   setBallVelocity({ x: 2, y: 2 });
+      // }
+    }, 10);
+  }, [ballPosition, ballVelocity]);
+
+  useEffect(() => {
+    const handleKeyDown = (event) => {
+      setKeysPressed((prevKeys) => ({
+        ...prevKeys,
+        [event.key]: true
+      }));
+    };
+
+    const handleKeyUp = (event) => {
+      setKeysPressed((prevKeys) => ({
+        ...prevKeys,
+        [event.key]: false
+      }));
+    };
+
+    const moveBoxes = () => {
+      if (keysPressed['w']) {
+        // Move up
+        setPosition1((prevPosition) => Math.max(prevPosition - 5, 0));
+      }
+      if (keysPressed['s']) {
+        // Move down
+        setPosition1((prevPosition) => Math.min(prevPosition + 5, 250));
+      }
+      if (keysPressed['ArrowUp']) {
+        // Move up
+        setPosition2((prevPosition) => Math.max(prevPosition - 5, 0));
+      }
+      if (keysPressed['ArrowDown']) {
+        // Move down
+        setPosition2((prevPosition) => Math.min(prevPosition + 5, 250));
+      }
+    };
+
+    const interval = setInterval(moveBoxes, 10); // Adjust speed if necessary
+
+    window.addEventListener('keydown', handleKeyDown);
+    window.addEventListener('keyup', handleKeyUp);
+
+    return () => {
+      clearInterval(interval);
+      window.removeEventListener('keydown', handleKeyDown);
+      window.removeEventListener('keyup', handleKeyUp);
+    };
+  }, [keysPressed]);
+  
+  return (
+    <div style={{display: 'flex', paddingTop: '100px', height: '500px', }}>
+      <div style={{flex: '1'}}>
+        <div style={{
+            background: 'white',
+            width: '25px',
+            height: '150px',
+            float: 'right',
+            marginTop: `${position1}px`,
+            //transition: 'margin 0.002s ease-in-out' // Add smooth transition
+        }}>
+        </div>
+      </div>
+      <div style={{flex: '10', borderTop: 'solid #FFF', borderRadius: '1px', borderBottom: 'solid #FFF'}}>
+        <div style={{width: '30px', height: '30px', borderRadius: '15px', background: 'white', marginTop: `${ballPosition.x}px`, marginLeft: `${ballPosition.y}px`}}></div>
+      </div>
+      <div style={{flex: '1'}}>
+        <div style={{
+            background: 'white',
+            width: '25px',
+            height: '150px',
+            float: 'left',
+            marginTop: `${position2}px`,
+            //transition: 'margin 0.002s ease-in-out' // Add smooth transition
+        }}>
+        </div>
+      </div>
+    </div>
+  );
+};
