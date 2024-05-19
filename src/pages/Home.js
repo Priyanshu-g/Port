@@ -3,7 +3,7 @@ import FadeIn from 'react-fade-in';
 import Typewriter from 'typewriter-effect/dist/core';
 import { FaHtml5, FaCss3Alt, FaPython, FaPhp, FaGitAlt, FaGithub, FaReact, FaNodeJs, FaUnity, FaLinux   } from "react-icons/fa";
 import { IoLogoJavascript } from "react-icons/io5";
-import { SiCplusplus, SiJquery, SiCsharp, SiDotnet, SiApache, SiJira, SiGooglebigquery, SiGooglecloudstorage, SiGooglepubsub, SiUnrealengine, SiVisualstudio, SiVisualstudiocode, SiAna } from "react-icons/si";
+import { SiCplusplus, SiJquery, SiCsharp, SiDotnet, SiApache, SiJira, SiGooglebigquery, SiGooglecloudstorage, SiGooglepubsub, SiUnrealengine, SiVisualstudio, SiVisualstudiocode, } from "react-icons/si";
 import { TbSql } from "react-icons/tb";
 import { Link } from 'react-router-dom';
 import "./Home.css";
