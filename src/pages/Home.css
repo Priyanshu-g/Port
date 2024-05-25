@@ -44,23 +44,11 @@
     position: relative;
     display: flex;
     text-align: center;
+    z-index: -100;
   }
-  
-  .logos:before,
-  .logos:after {
-    position: absolute;
-    top: 0;
-    height: 100%;
-    content: "";
-    z-index: 2;
-  }
-  
-  .logos:before {
-    left: 0;
-  }
-  
-  .logos:after {
-    right: 0;
+
+  .logos-contain{
+    z-index: -100;
   }
   
   .logos:hover .logos-slide1 {
@@ -83,24 +71,28 @@
     display: flex;
     animation: 40s slide1 infinite linear;
     position: fixed;
+    z-index: -100;
   }
   
   .logos-slide2 {
     display: flex;
     animation: 40s slide2 infinite linear;
     position: fixed;
+    z-index: -100;
   }
   
   .logos-slide1r {
     display: flex;
     animation: 40s slide1r infinite linear;
     position: fixed;
+    z-index: -100;
   }
   
   .logos-slide2r {
     display: flex;
     animation: 40s slide2r infinite linear;
     position: fixed;
+    z-index: -100;
   }
 
   .nav__linkP {

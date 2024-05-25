@@ -46,20 +46,24 @@ const Home = () => {
         <h1 id="typed"> </h1><br /><br />
         <FadeIn>
           <h2>Skills</h2><br /><br />
-          <div className="logos">
-            <LogosSlide0 name='logos-slide1'/>
-            <LogosSlide0 name='logos-slide2'/>
-          </div><br />
-          <div className="logos">
-            <LogosSlide1 name='logos-slide1r'/>
-            <LogosSlide1 name='logos-slide2r'/>
-          </div><br />
+          <div className="logos-contain">
+            <div className="logos">
+              <LogosSlide0 name='logos-slide1'/>
+              <LogosSlide0 name='logos-slide2'/>
+            </div><br />
+            <div className="logos">
+              <LogosSlide1 name='logos-slide1r'/>
+              <LogosSlide1 name='logos-slide2r'/>
+            </div><br />
+          </div>
         </FadeIn>
-        <div style={{textAlign: 'center', fontSize: 'var(--h2-font-size)', marginTop: '50px'}}>Welcome to my portfolio! Check out the different sections and head over to "Contact Me" to get your hands on my resume!</div>
-        <div style={{display: 'flex', gap: '10px', width: '100%', justifyContent: 'center'}}>
-          <FadeIn>
-              <Table></Table>
-          </FadeIn>
+        <div style={{backgroundColor: 'var(--body-color)', position: 'absolute', left: '0px', right: '0px',}}>
+          <div style={{textAlign: 'center', fontSize: 'var(--h2-font-size)', marginTop: '50px'}}>Welcome to my portfolio! Check out the different sections and head over to "Contact Me" to get your hands on my resume!</div>
+          <div style={{display: 'flex', gap: '10px', width: '100%', justifyContent: 'center'}}>
+            <FadeIn>
+                <Table></Table>
+            </FadeIn>
+          </div>
         </div>
       </div>
   );
